@@ -56,21 +56,24 @@ h4 {
   z-index: 2;
 }
 
-.logo {
+.logo-tim {
   display: block;
   fill: var(--highlight);
 }
 
-.logo circle { fill: var(--color-dark); }
+.logo-tim circle { fill: var(--color-dark); }
 
-.main-header .logo {
+.main-header .logo-tim {
   width: 100%;
   margin: 0;
 }
 
 .text-icon { 
+  display: inline-block;
   height: 1em;
   vertical-align: baseline;
+  color: var(--color-dark);
+  margin-right: 0.25em;
 }
 
 /*--- Main-content ------------------------------------*/
@@ -221,6 +224,18 @@ h4 {
   margin: var(--spacer) 0;
 }
 
+.logo-cmontmorency {
+  height: 34px;
+}
+
+.logo-cmontmorency ellipse {
+  fill: var(--highlight);
+}
+
+.logo-cmontmorency path {
+  fill: var(--color-dark);
+}
+
 .networks {
   margin: var(--spacer) 0;
 }
@@ -274,7 +289,7 @@ h4 {
   flex-direction: column;
 }
 
-.copyrights .logo {
+.copyrights .logo-tim {
   height: 40px;
   margin: 0 auto var(--spacer);
 }
@@ -304,7 +319,7 @@ h4 {
     text-align: left;
   }
 
-  .copyrights .logo {
+  .copyrights .logo-tim {
     display: block;
     margin: 0.4em calc(var(--spacer)*2) 0 0;
   }
@@ -314,6 +329,10 @@ h4 {
     display: flex;
     align-items: center;
   }
+
+  .credits { height: 100%; }
+
+  .credits__text { width: 100%; }
 }
 
 @media (min-width: 992px) {
