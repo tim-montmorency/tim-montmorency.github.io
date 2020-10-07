@@ -35,6 +35,7 @@ h3,
 h4 {
   font-family: var(--font-heading);
   font-weight: 600;
+  margin: 1.5em 0 0.5em;
 }
 
 /*--- Header ------------------------------------*/
@@ -77,6 +78,9 @@ h4 {
   position: relative;
   z-index: 1;
 }
+
+.description__text > *:first-child { margin-top: 0; }
+.description__text > *:last-child { margin-bottom: 0; }
 
 .list {
   list-style: none;
@@ -194,6 +198,10 @@ h4 {
   margin: var(--spacer) 0;
 }
 
+.networks__title {
+  font-weight: bold;
+}
+
 .networks__list {
   list-style: none;
   margin: 5px -3px;
@@ -244,6 +252,34 @@ h4 {
 }
 
 @media (min-width: 992px) {
+  .main-content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+  }
+
+  .section--description {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 0 var(--spacer);
+  }
+
+  .section--projects,
+  .section--installations {
+    flex: 0 0 50%;
+    width: 50%;
+    padding: 0 var(--spacer);
+  }
+
+  .description__text {
+    column-count: 2;
+    column-gap: calc(var(--spacer)*2);
+  }
+
+  .main-footer {
+    padding: var(--spacer);
+  }
+
   .main-footer__program {
     flex: 0 0 33.33%;
     width: 33.33%;
@@ -258,6 +294,7 @@ h4 {
 
   .college {
     display: flex;
+    max-width: 600px;
   }
 
   .college__address,
@@ -266,5 +303,26 @@ h4 {
     width: 50%;
     margin: 0;
     padding: 0 var(--spacer);
+  }
+
+  .college__contact {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-footer__credits,
+  .main-footer__copyrights {
+    flex: 0 0 50%;
+    width: 50%;
+  }
+
+  .main-footer__credits {
+    order: 1;
+    text-align: right;
+  }
+
+  .main-footer__copyrights {
+    text-align: left;
   }
 }
