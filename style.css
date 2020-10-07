@@ -53,6 +53,7 @@ h4 {
   max-width: var(--width);
   margin: calc(var(--spacer)*3) auto calc(var(--spacer)*2);
   padding: 0 var(--spacer);
+  z-index: 2;
 }
 
 .logo {
@@ -80,7 +81,7 @@ h4 {
   margin: var(--spacer) auto;
   min-height: calc(100vh - 350px);
   padding: 0 var(--spacer);
-  z-index: 100;
+  z-index: 1;
 }
 
 .section {
@@ -308,7 +309,8 @@ h4 {
     margin: 0.4em calc(var(--spacer)*2) 0 0;
   }
 
-  .copyrights__text {
+  .copyrights__text,
+  .credits {
     display: flex;
     align-items: center;
   }
