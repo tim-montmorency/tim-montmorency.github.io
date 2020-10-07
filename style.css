@@ -7,7 +7,7 @@
   --color-dark: #e0e0e0;
   --background-light: #181818;
   --background: #111;
-  --background-dark: #000;
+  --background-dark: #0E0E0E;
   --hightlight-light: #ff3363;
   --highlight: #ff003a;
   --highlight-dark: #e00034;
@@ -50,12 +50,13 @@ h4 {
 .logo {
   display: block;
   fill: var(--highlight);
-  width: 100%;
-  margin: 0;
 }
 
-.logo circle {
-  fill: #fff;
+.logo circle { fill: #fff; }
+
+.main-header .logo {
+  width: 100%;
+  margin: 0;
 }
 
 .text-icon { 
@@ -149,7 +150,7 @@ h4 {
   flex-wrap: wrap;
   position: relative;
   width: 100%;
-  background-color: var(--background);
+  background-color: var(--background-dark);
   margin: calc(var(--spacer)*3) 0 0;
   padding: var(--spacer) 0;
   overflow: hidden;
@@ -213,6 +214,15 @@ h4 {
   padding: 3px;
 }
 
+.networks__link {
+  color: currentColor;
+  transition: color 0.3s;
+}
+
+.networks__link:hover {
+  color: #fff;
+}
+
 .networks svg {
   fill: currentColor;
   width: 34px;
@@ -232,6 +242,16 @@ h4 {
   margin: var(--spacer) 0;
 }
 
+.copyrights {
+  display: flex;
+  flex-direction: column;
+}
+
+.copyrights .logo {
+  height: 40px;
+  margin: 0 auto var(--spacer);
+}
+
 /*--- Animations ------------------------------------*/
 @keyframes moving-grid {
   0% { transform: rotateX(60deg) translate3d(-50%, -50%, 0); }
@@ -246,8 +266,21 @@ h4 {
     width: 50%;
   }
 
-  .main-footer__college {
-    order: -1;
+  .main-footer__college { order: -1; }
+
+  .copyrights {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .copyrights .logo {
+    display: block;
+    margin: 0.4em calc(var(--spacer)*2) 0 0;
+  }
+
+  .copyrights__text {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -277,7 +310,22 @@ h4 {
   }
 
   .main-footer {
-    padding: var(--spacer);
+    padding-top: calc(var(--spacer)*2);
+  }
+
+  .main-footer__program,
+  .main-footer__college,
+  .main-footer__credits,
+  .main-footer__copyrights {
+    padding-left: calc(var(--spacer)*2);
+    padding-right: calc(var(--spacer)*2);
+  }
+
+  .main-footer__credits,
+  .main-footer__copyrights {
+    border-top: solid 1px rgba(255, 255, 255, 0.05);
+    margin-top: var(--spacer);
+    padding-top: calc(var(--spacer)*2);
   }
 
   .main-footer__program {
@@ -308,21 +356,20 @@ h4 {
   .college__contact {
     text-align: left;
   }
-}
 
-@media (min-width: 1200px) {
-  .main-footer__credits,
   .main-footer__copyrights {
-    flex: 0 0 50%;
-    width: 50%;
+    flex: 0 0 66.66%;
+    width: 66.66%;
   }
 
   .main-footer__credits {
+    flex: 0 0 33.33%;
+    width: 33.33%;
     order: 1;
-    text-align: right;
-  }
-
-  .main-footer__copyrights {
     text-align: left;
   }
+}
+
+@media (min-width: 1200px) {
+  
 }
