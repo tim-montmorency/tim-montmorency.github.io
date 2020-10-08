@@ -101,6 +101,7 @@ h4 {
 .section {
   position: relative;
   z-index: 1;
+  margin: calc(var(--spacer)*2) 0;
 }
 
 .section__title {
@@ -119,7 +120,7 @@ h4 {
 .list__item {
   position: relative;
   display: block;
-  margin: 15px 0;
+  margin: var(--spacer) 0;
   transition: transform 0.2s;
 }
 
@@ -143,7 +144,7 @@ h4 {
   color: currentColor;
   border: solid 1px currentColor;
   background-color: var(--background);
-  padding: 15px;
+  padding: var(--spacer);
   text-decoration: none;
 }
 .list__link h3 {
@@ -182,6 +183,42 @@ h4 {
   top: -45%;
   transform: rotateX(60deg) translateX(-50%) translateY(-50%);
   width: 125vw;
+}
+
+.slogan,
+.networks {
+  text-align: center;
+}
+
+.networks__title {
+  font-weight: bold;
+  color: var(--color-dark);
+}
+
+.networks__list {
+  list-style: none;
+  margin: 5px -3px;
+  padding: 0;
+}
+
+.networks__item {
+  display: inline-block;
+  padding: 3px;
+}
+
+.networks__link {
+  color: currentColor;
+  transition: color 0.3s;
+}
+
+.networks__link:hover {
+  color: #fff;
+}
+
+.networks svg {
+  fill: currentColor;
+  width: 34px;
+  height: 34px;
 }
 
 /*--- Footer ------------------------------------*/
@@ -239,47 +276,16 @@ h4 {
   height: 34px;
 }
 
+.logo-cmontmorency path {
+  fill: var(--highlight);
+}
+
 .logo-cmontmorency ellipse {
   fill: var(--highlight);
 }
 
-.logo-cmontmorency path {
+.logo-cmontmorency g path {
   fill: var(--color-dark);
-}
-
-.networks {
-  margin: var(--spacer) 0;
-}
-
-.networks__title {
-  font-weight: bold;
-  color: var(--color-dark);
-}
-
-.networks__list {
-  list-style: none;
-  margin: 5px -3px;
-  padding: 0;
-}
-
-.networks__item {
-  display: inline-block;
-  padding: 3px;
-}
-
-.networks__link {
-  color: currentColor;
-  transition: color 0.3s;
-}
-
-.networks__link:hover {
-  color: #fff;
-}
-
-.networks svg {
-  fill: currentColor;
-  width: 34px;
-  height: 34px;
 }
 
 .college {
@@ -290,13 +296,12 @@ h4 {
 .college > *:first-child { margin-top: 0;}
 .college > *:last-child { margin-bottom: 0;}
 
-.college__address,
-.college__contact {
-  margin: var(--spacer) 0;
-}
-
 .college__address address {
   font-style: normal;
+}
+
+.college__phone {
+  margin-top: var(--spacer);
 }
 
 .college__contact a {
@@ -314,10 +319,6 @@ h4 {
   margin: 0 auto var(--spacer);
 }
 
-.credits__title {
-  color: var(--color-dark);
-}
-
 /*--- Animations ------------------------------------*/
 @keyframes moving-grid {
   0% { transform: rotateX(60deg) translate3d(-50%, -50%, 0); }
@@ -326,13 +327,34 @@ h4 {
 
 /*--- Media queries ------------------------------------*/
 @media (min-width: 576px) {
-  .main-footer__college,
-  .main-footer__program {
+  .list__link {
+    padding: calc(var(--spacer) * 1.5);
+  }
+
+  .main-footer__college {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  .main-footer__college { order: -1; }
+
+  .college {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .college__logo,
+  .college__address,
+  .college__phone,
+  .college__website {
     flex: 0 0 50%;
     width: 50%;
   }
 
-  .main-footer__college { order: -1; }
+  .college__logo { order: 0; }
+  .college__address { order: 2; }
+  .college__phone { order: 1; }
+  .college__website { order: 3; }
 
   .copyrights {
     flex-direction: row;
@@ -355,36 +377,40 @@ h4 {
   .credits__text { width: 100%; }
 }
 
-@media (min-width: 992px) {
-  .main-content {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 800px;
+@media (min-width: 768px) {
+  .college {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+      "left center right-top"
+      "left center right-bottom";
   }
 
-  .section--description {
-    flex: 0 0 100%;
+  .college__logo,
+  .college__address,
+  .college__phone,
+  .college__website {
     width: 100%;
-    padding: 0 var(--spacer);
   }
 
-  .section--projects,
-  .section--installations {
-    flex: 0 0 50%;
-    width: 50%;
-    padding: 0 var(--spacer);
+  .college__logo { grid-area: left; }
+  .college__address { grid-area: center; }
+  .college__phone { 
+    grid-area: right-top; 
+    margin-top: 0;
   }
+  .college__website { grid-area: right-bottom; }
+}
 
-  .description__text {
-    column-count: 2;
-    column-gap: calc(var(--spacer)*2);
+@media (min-width: 992px) {
+  :root {
+    --width: 575px;
   }
 
   .main-footer {
     padding-top: calc(var(--spacer)*2);
   }
 
-  .main-footer__program,
   .main-footer__college,
   .main-footer__credits,
   .main-footer__copyrights {
@@ -399,34 +425,21 @@ h4 {
     padding-top: calc(var(--spacer)*2);
   }
 
-  .main-footer__program {
-    flex: 0 0 33.33%;
-    width: 33.33%;
-  }
-
   .main-footer__college {
-    flex: 0 0 66.66%;
-    width: 66.66%;
+    width: 100%;
     padding-left: 0;
     padding-right: 0;
   }
 
   .college {
-    display: flex;
-    max-width: 600px;
+    align-items: center;
+    grid-template-areas: 
+      "left center-left center-right right"
   }
 
-  .college__address,
-  .college__contact {
-    flex: 0 0 50%;
-    width: 50%;
-    margin: 0;
-    padding: 0 var(--spacer);
-  }
-
-  .college__contact {
-    text-align: left;
-  }
+  .college__address { grid-area: center-left; }
+  .college__phone { grid-area: center-right; }
+  .college__website { grid-area: right; }
 
   .main-footer__copyrights {
     flex: 0 0 66.66%;
