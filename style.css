@@ -39,6 +39,10 @@
   border: 0;
 }
 
+.xxl-only { display: none; }
+
+html { scroll-behavior: smooth; }
+
 body {
   background-color: var(--background);
   color: var(--highlight);
@@ -108,6 +112,16 @@ h4 {
   color: var(--color-dark);
 }
 
+.section__anchor {
+  scroll-margin-top: calc(var(--spacer)*2);
+  color: var(--highlight);
+  margin-left: -.89em;
+  font-size: 1em;
+  font-weight: 100;
+  visibility: hidden;
+  text-decoration: none;
+}
+
 .description__text > *:first-child { margin-top: 0; }
 .description__text > *:last-child { margin-bottom: 0; }
 
@@ -121,10 +135,13 @@ h4 {
   position: relative;
   display: block;
   margin: var(--spacer) 0;
+}
+
+.card {
   transition: transform 0.2s;
 }
 
-.list__item::before {
+.card::before {
   content: '';
   width: 100%;
   height: 100%;
@@ -134,11 +151,11 @@ h4 {
   background-color: var(--highlight);
 }
 
-.list__item:hover {
+.card:hover {
   transform: skewY(-1deg) scale(1.05);
 }
 
-.list__link {
+.card__link {
   position: relative;
   display: block;
   color: currentColor;
@@ -147,9 +164,14 @@ h4 {
   padding: var(--spacer);
   text-decoration: none;
 }
-.list__link h3 {
+
+.card__title {
   display: block;
   margin: 0;
+}
+
+.card__description {
+  font-size: 14px;
 }
 
 .main-content__outro {
@@ -225,6 +247,8 @@ h4 {
   height: 34px;
 }
 
+.clipboard-popup { display: none; }
+
 /*--- Footer ------------------------------------*/
 .main-footer {
   display: grid;
@@ -291,7 +315,11 @@ h4 {
   padding: 3px 0;
 }
 
-.logo-cmontmorency { height: 34px; }
+.logo-cmontmorency { 
+  display: block;
+  height: 34px; 
+  margin: 0 auto 5px;
+}
 
 .logo-cmontmorency path {
   fill: var(--highlight);
@@ -323,7 +351,10 @@ h4 {
 }
 
 /*--- Media queries ------------------------------------*/
+/*--- SM ---------------------------------*/
 @media (min-width: 576px) {
+  .section__title:hover .section__anchor { visibility: visible; }
+
   .list__link {
     padding: calc(var(--spacer) * 1.5);
   }
@@ -335,8 +366,21 @@ h4 {
       "address website"
       "credits credits"
       "copyrights copyrights";
+    padding-left: var(--spacer);
+    padding-right: var(--spacer);
   }
 
+  .main-footer__college,
+  .main-footer__address {
+    text-align: left;
+  }
+
+  .main-footer__phone,
+  .main-footer__website {
+    text-align: right;
+  }
+
+  .logo-cmontmorency { margin: 0 0 5px; }
  
   .copyrights {
     flex-direction: row;
@@ -347,8 +391,33 @@ h4 {
     display: block;
     margin: 0.4em calc(var(--spacer)*2) 0 0;
   }
+
+  .clipboard-popup {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: var(--highlight);
+    color: var(--background);
+    font-weight: bold;
+    padding: var(--spacer);
+    transform: translate(-50%, calc(-50% - var(--spacer)));
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .clipboard-popup br { display: none; }
+
+  .clipboard-popup.is-visible {
+    opacity: 1;
+    transform: translate(-50%, calc(-50%));
+  }
 }
 
+/*--- MD ---------------------------------*/
 @media (min-width: 768px) {
   .main-footer {
     grid-template-areas: 
@@ -359,8 +428,11 @@ h4 {
   }
 
   .main-footer__phone { margin-top: 0; }
+
+  .logo-cmontmorency { margin: 0; }
 }
 
+/*--- LG ---------------------------------*/
 @media (min-width: 992px) {
   :root {
     --width: 575px;
@@ -372,19 +444,19 @@ h4 {
       "college address website credits"
       "copyrights copyrights copyrights copyrights";
     text-align: left;
-    padding-left: var(--spacer);
-    padding-right: var(--spacer);
   }
+  .main-footer__phone,
+  .main-footer__website { text-align: left; }
 
   .main-footer__credits { margin-top: 0; }
 
-  .copyrights {
-    width: fit-content;
-    margin: 0 auto;
-  }
+  .copyrights { width: fit-content; }
 }
 
-@media (min-width: 1590px) {
+/*--- XXL ---------------------------------*/
+@media (min-width: 1480px) {
+  .xxl-only { display: block; }
+
   .main-footer {
     grid-auto-columns: auto;
     grid-template-areas: 
