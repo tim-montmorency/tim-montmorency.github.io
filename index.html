@@ -236,15 +236,17 @@
 
 <script>
   const clipboardPopup = document.querySelector('.clipboard-popup');
+  const domainUrl = document.URL.replace(/#.*$/, '');
 
   function updateClipboard(e) {
     const title = e.target.nextSibling.nodeValue;
+    
     clipboardPopup.innerText = `Lien copié vers ${title}`;
     clipboardPopup.classList.add('is-visible');
     clipboardPopup.addEventListener('transitionend', () => {
       setTimeout(() => clipboardPopup.classList.remove('is-visible'), 1000);
     });
-    navigator.clipboard.writeText(`${location.pathname}#${e.target.id}`);
+    navigator.clipboard.writeText(`${domainUrl}#${e.target.id}`);
   }
 
   const anchorsList = document.querySelectorAll('.section__anchor');
