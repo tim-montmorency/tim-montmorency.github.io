@@ -185,6 +185,10 @@ h4 {
   width: 125vw;
 }
 
+.section--slogan {
+  padding-top: 10px;
+}
+
 .slogan,
 .networks {
   text-align: center;
@@ -223,16 +227,24 @@ h4 {
 
 /*--- Footer ------------------------------------*/
 .main-footer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-areas: 
+    "college"
+    "address"
+    "phone"
+    "website"
+    "credits"
+    "copyrights";
   position: relative;
   width: 100%;
   background-color: var(--background-dark);
   margin: calc(var(--spacer)*3) 0 0;
-  padding: var(--spacer) 0;
+  padding: calc(var(--spacer)*2) 0;
   overflow: hidden;
   border-top: solid 1px var(--highlight);
-  z-index: 100;
+  text-align: center;
+  z-index: 1;
 }
 
 .main-footer a {
@@ -244,37 +256,42 @@ h4 {
   text-decoration: underline;
 }
 
+.main-footer__college { grid-area: college; }
+.main-footer__address { grid-area: address; }
+.main-footer__phone { grid-area: phone; }
+.main-footer__website { grid-area: website; }
+.main-footer__credits { grid-area: credits; }
+.main-footer__copyrights { grid-area: copyrights; }
+
 .main-footer__college,
-.main-footer__program,
+.main-footer__address,
+.main-footer__phone,
+.main-footer__website,
 .main-footer__credits,
 .main-footer__copyrights {
-  flex: 0 0 100%;
-  width: 100%;
-  padding: var(--spacer);
-  text-align: center;
+  padding: 0 var(--spacer);
 }
 
-.main-footer__college > *:first-child,
-.main-footer__program > *:first-child,
-.main-footer__credits > *:first-child,
-.main-footer__copyrights > *:first-child {
-  margin-top: 0;
+.main-footer__phone,
+.main-footer__credits,
+.main-footer__copyrights {
+  margin-top: var(--spacer);
 }
 
-.main-footer__college > *:last-child,
-.main-footer__program > *:last-child,
-.main-footer__credits > *:last-child,
-.main-footer__copyrights > *:last-child {
-  margin-bottom: 0;
+.main-footer__credits,
+.main-footer__copyrights {
+  font-size: 14px;
 }
 
-.program {
-  margin: var(--spacer) 0;
+.main-footer__address address { font-style: normal; }
+
+.main-footer__phone a,
+.main-footer__website a {
+  display: inline-block;
+  padding: 3px 0;
 }
 
-.logo-cmontmorency {
-  height: 34px;
-}
+.logo-cmontmorency { height: 34px; }
 
 .logo-cmontmorency path {
   fill: var(--highlight);
@@ -288,28 +305,8 @@ h4 {
   fill: var(--color-dark);
 }
 
-.college {
-  position: relative; 
-  width: 100%;
-}
-
-.college > *:first-child { margin-top: 0;}
-.college > *:last-child { margin-bottom: 0;}
-
-.college__address address {
-  font-style: normal;
-}
-
-.college__phone {
-  margin-top: var(--spacer);
-}
-
-.college__contact a {
-  display: inline-block;
-  padding: 5px 0;
-}
-
 .copyrights {
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
@@ -331,31 +328,16 @@ h4 {
     padding: calc(var(--spacer) * 1.5);
   }
 
-  .main-footer__college {
-    flex: 0 0 100%;
-    width: 100%;
+  .main-footer {
+    align-items: center;
+    grid-template-areas: 
+      "college phone"
+      "address website"
+      "credits credits"
+      "copyrights copyrights";
   }
 
-  .main-footer__college { order: -1; }
-
-  .college {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .college__logo,
-  .college__address,
-  .college__phone,
-  .college__website {
-    flex: 0 0 50%;
-    width: 50%;
-  }
-
-  .college__logo { order: 0; }
-  .college__address { order: 2; }
-  .college__phone { order: 1; }
-  .college__website { order: 3; }
-
+ 
   .copyrights {
     flex-direction: row;
     text-align: left;
@@ -365,41 +347,18 @@ h4 {
     display: block;
     margin: 0.4em calc(var(--spacer)*2) 0 0;
   }
-
-  .copyrights__text,
-  .credits {
-    display: flex;
-    align-items: center;
-  }
-
-  .credits { height: 100%; }
-
-  .credits__text { width: 100%; }
 }
 
 @media (min-width: 768px) {
-  .college {
-    display: grid;
-    grid-auto-columns: 1fr;
+  .main-footer {
     grid-template-areas: 
-      "left center right-top"
-      "left center right-bottom";
+      "college address phone"
+      "college address website"
+      "credits credits credits"
+      "copyrights copyrights copyrights";
   }
 
-  .college__logo,
-  .college__address,
-  .college__phone,
-  .college__website {
-    width: 100%;
-  }
-
-  .college__logo { grid-area: left; }
-  .college__address { grid-area: center; }
-  .college__phone { 
-    grid-area: right-top; 
-    margin-top: 0;
-  }
-  .college__website { grid-area: right-bottom; }
+  .main-footer__phone { margin-top: 0; }
 }
 
 @media (min-width: 992px) {
@@ -408,52 +367,30 @@ h4 {
   }
 
   .main-footer {
-    padding-top: calc(var(--spacer)*2);
-  }
-
-  .main-footer__college,
-  .main-footer__credits,
-  .main-footer__copyrights {
-    padding-left: calc(var(--spacer)*2);
-    padding-right: calc(var(--spacer)*2);
-  }
-
-  .main-footer__credits,
-  .main-footer__copyrights {
-    border-top: solid 1px rgba(255, 255, 255, 0.05);
-    margin-top: var(--spacer);
-    padding-top: calc(var(--spacer)*2);
-  }
-
-  .main-footer__college {
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .college {
-    align-items: center;
     grid-template-areas: 
-      "left center-left center-right right"
-  }
-
-  .college__address { grid-area: center-left; }
-  .college__phone { grid-area: center-right; }
-  .college__website { grid-area: right; }
-
-  .main-footer__copyrights {
-    flex: 0 0 66.66%;
-    width: 66.66%;
-  }
-
-  .main-footer__credits {
-    flex: 0 0 33.33%;
-    width: 33.33%;
-    order: 1;
+      "college address phone credits"
+      "college address website credits"
+      "copyrights copyrights copyrights copyrights";
     text-align: left;
+    padding-left: var(--spacer);
+    padding-right: var(--spacer);
+  }
+
+  .main-footer__credits { margin-top: 0; }
+
+  .copyrights {
+    width: fit-content;
+    margin: 0 auto;
   }
 }
 
-@media (min-width: 1200px) {
-  
+@media (min-width: 1590px) {
+  .main-footer {
+    grid-auto-columns: auto;
+    grid-template-areas: 
+      "copyrights credits college address phone"
+      "copyrights credits college address website";
+  }
+
+  .main-footer__copyrights { margin-top: 0; }
 }
