@@ -1,0 +1,30 @@
+:root {
+  /* Fonts */
+  --font-regular: 'Quicksand', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+
+  /* Colors */
+  --white-dark: #e0e0e0;
+  --black-off: #111;
+  --black-dark: #0e0e0e;
+  --red-light: #ff3363;
+  --red: #ff003a;
+
+  /* Theme */
+  --color: var(--black-off);
+  --background: #fff;
+  --background-off: #f4f4f4;
+  --highlight: var(--red-light);
+
+  /* Spacing */
+  --spacer: 15px;
+  --section-spacer: 40px;
+  --width: 375px;
+}
+
+.site-theme--dark {
+  --color: var(--white-dark);
+  --background: var(--black-off);
+  --background-off: var(--black-dark);
+  --highlight: var(--red);
+}

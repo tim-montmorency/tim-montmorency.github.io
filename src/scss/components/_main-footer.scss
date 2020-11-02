@@ -1,0 +1,173 @@
+.main-footer {
+  background-color: var(--background-off);
+  border-top: solid 1px var(--highlight);
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-areas:
+    'college'
+    'address'
+    'phone'
+    'website'
+    'credits'
+    'copyrights';
+  margin: calc(var(--spacer) * 3) 0 0;
+  overflow: hidden;
+  padding: calc(var(--spacer) * 2) 0;
+  position: relative;
+  text-align: center;
+  transition: background-color 1s, border-top 1s;
+  width: 100%;
+  z-index: 1;
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__college {
+    grid-area: college;
+  }
+
+  &__address {
+    grid-area: address;
+  }
+
+  &__phone {
+    grid-area: phone;
+  }
+
+  &__website {
+    grid-area: website;
+  }
+
+  &__phone a,
+  &__website a {
+    display: inline-block;
+    padding: 3px 0;
+  }
+
+  &__credits {
+    grid-area: credits;
+  }
+
+  &__copyrights {
+    grid-area: copyrights;
+  }
+
+  &__college,
+  &__address,
+  &__phone,
+  &__website,
+  &__credits,
+  &__copyrights {
+    padding: 0 var(--spacer);
+  }
+
+  &__phone,
+  &__credits,
+  &__copyrights {
+    margin-top: var(--spacer);
+  }
+
+  &__credits,
+  &__copyrights {
+    font-size: 14px;
+  }
+
+  &__address address {
+    font-style: normal;
+  }
+}
+
+.logo-cmontmorency {
+  display: block;
+  height: 34px;
+  margin: 0 auto 5px;
+
+  path {
+    fill: var(--highlight);
+    transition: fill 1s;
+  }
+
+  ellipse {
+    fill: var(--highlight);
+    transition: fill 1s;
+  }
+
+  g path {
+    fill: var(--color);
+    transition: fill 1s;
+  }
+}
+
+.copyrights {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  .logo-tim {
+    height: 40px;
+    margin: 0 auto var(--spacer);
+  }
+}
+
+/* --- MD --------------------------------- */
+@media (min-width: 768px) {
+  .main-footer {
+    grid-template-areas:
+      'college address phone'
+      'college address website'
+      'credits credits credits'
+      'copyrights copyrights copyrights';
+
+    &__phone {
+      margin-top: 0;
+    }
+
+    .logo-cmontmorency {
+      margin: 0;
+    }
+  }
+}
+
+/* --- LG --------------------------------- */
+@media (min-width: 992px) {
+  .main-footer {
+    grid-template-areas:
+      'college address phone credits'
+      'college address website credits'
+      'copyrights copyrights copyrights copyrights';
+    text-align: left;
+
+    &__phone,
+    &__website {
+      text-align: left;
+    }
+
+    &__credits {
+      margin-top: 0;
+    }
+
+    .copyrights {
+      width: fit-content;
+    }
+  }
+}
+
+/* --- XXL --------------------------------- */
+@media (min-width: 1480px) {
+  .main-footer {
+    grid-auto-columns: auto;
+    grid-template-areas:
+      'copyrights credits college address phone'
+      'copyrights credits college address website';
+
+    &__copyrights {
+      margin-top: 0;
+    }
+  }
+}
