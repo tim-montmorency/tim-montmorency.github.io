@@ -1,0 +1,19 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    position: relative;
+    display: block;
+    margin: var(--spacer) 0;
+  }
+}
+
+@media (min-width: 576px) {
+  .list {
+    &__link {
+      padding: calc(var(--spacer) * 1.5);
+    }
+  }
+}

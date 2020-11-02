@@ -1,0 +1,31 @@
+.clipboard-popup { 
+  display: none; 
+}
+
+@media (min-width: 576px) {
+  .clipboard-popup {
+    background-color: var(--highlight);
+    color: var(--background);
+    display: block;
+    font-weight: bold;
+    left: 50%;
+    opacity: 0;
+    padding: var(--spacer);
+    pointer-events: none;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, calc(-50% - var(--spacer)));
+    transition: opacity 0.3s, transform 0.3s, color 1s, background-color 1s;
+    z-index: 2;
+
+    br {
+      display: none;
+    }
+
+    &.is-visible {
+      opacity: 1;
+      transform: translate(-50%, calc(-50%));
+    }
+  }
+}

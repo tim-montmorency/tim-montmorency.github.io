@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+@import 'abstracts/**/*.scss';
+@import '~normalize.css/normalize';
+@import '~bootstrap/scss/bootstrap-grid';
+@import 'placeholders/**/*.scss';
+@import 'vendors/**/*.scss';
+@import 'global/**/*.scss';
+@import 'partials/**/*.scss';

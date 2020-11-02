@@ -1,0 +1,36 @@
+.section {
+  position: relative;
+  z-index: 1;
+  margin: calc(var(--spacer)*2) 0;
+
+  &__title {
+    color: var(--color);
+    transition: color 1s;
+  }
+
+  &__anchor {
+    scroll-margin-top: calc(var(--spacer)*2);
+    color: var(--highlight);
+    margin-left: -.89em;
+    font-size: 1em;
+    font-weight: 100;
+    visibility: hidden;
+    text-decoration: none;
+    transition: color 1s;
+  }
+
+  &--slogan { 
+    padding-top: 10px; 
+  }
+}
+
+/*--- SM ---------------------------------*/
+@media (min-width: 576px) {
+  .section {
+    &__title {
+      &:hover {
+        .section__anchor { visibility: visible; }
+      }
+    } 
+  }
+}

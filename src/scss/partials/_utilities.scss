@@ -1,0 +1,12 @@
+.utilities {
+  display: none;
+  position: fixed;
+  right: 0;
+  padding: var(--spacer);
+}
+
+@media (min-width: 576px) {
+  .utilities {
+    display: block;
+  }
+}

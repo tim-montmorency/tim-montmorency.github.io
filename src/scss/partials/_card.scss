@@ -1,0 +1,38 @@
+.card {
+  transition: transform 0.2s;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 4px;
+    left: -4px;
+    background-color: var(--highlight);
+    transition: background-color 1s;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    color: currentColor;
+    border: solid 1px currentColor;
+    background-color: var(--background);
+    padding: var(--spacer);
+    text-decoration: none;
+    transition: background-color 1s;
+  }
+
+  &__title {
+    display: block;
+    margin: 0;
+  }
+
+  &__description {
+    font-size: 14px;
+  }
+
+  &:hover {
+    transform: skewY(-1deg) scale(1.05);
+  }
+}

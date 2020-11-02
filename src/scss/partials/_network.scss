@@ -1,0 +1,35 @@
+.networks {
+  text-align: center;
+
+  &__title {
+    font-weight: bold;
+    color: var(--color);
+    transition: color 1s;
+  }
+
+  svg {
+    fill: currentColor;
+    width: 34px;
+    height: 34px;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 5px -3px;
+    padding: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    padding: 3px;
+  }
+
+  &__link {
+    color: currentColor;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--color);
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.main-header {
+  margin: 0 auto calc(var(--spacer) * 2);
+  max-width: var(--width);
+  padding: calc(var(--spacer) * 3) var(--spacer) 0;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.logo-tim {
+  display: block;
+  fill: var(--highlight);
+  transition: fill 1s;
+}
+
+.logo-tim circle {
+  fill: var(--color);
+  transition: fill 0.25s;
+}
+
+.main-header .logo-tim {
+  margin: 0;
+  width: 100%;
+}
