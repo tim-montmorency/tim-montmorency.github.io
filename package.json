@@ -67,7 +67,7 @@
     "stylelint-webpack-plugin": "^2.0.0",
     "ua-parser-js": "^0.7.21",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "uuid": "^8.1.0",
+    "uuid": "^8.3.1",
     "vue-loader": "^15.9.2",
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",

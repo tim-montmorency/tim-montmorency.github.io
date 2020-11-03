@@ -1,0 +1,50 @@
+.youtube {
+  background-color: #000;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  display: block;
+  height: 0;
+  margin: auto;
+  overflow: hidden;
+  padding-bottom: 56.25%; // 16/9
+  position: relative;
+  width: 100%;
+
+  iframe,
+  video,
+  &__poster {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  &__poster {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity var(--s) ease;
+    visibility: visible;
+  }
+
+
+  &__button {
+    @extend %button-play;
+
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &.is-playing & {
+    &__poster {
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: opacity var(--s), transform 0s var(--s) visibility 0s var(--s);
+      visibility: hidden;
+    }
+
+    &__button { opacity: 0; }
+  }
+}
