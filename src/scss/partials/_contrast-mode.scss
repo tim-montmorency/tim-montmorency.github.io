@@ -1,7 +1,13 @@
+.contrast {
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
 .contrast-mode {
   background: transparent;
   border: 0;
-  margin: 0;
   padding: 0;
 
   .circle {
@@ -68,5 +74,24 @@
 
   .contrast-mode__ray {
     opacity: 1;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .contrast { 
+    position: fixed;
+    right: 15px;
+    display: flex;
+    top: 15px;
+    height: 40px;
+    align-items: center;
+    z-index: 5;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .contrast { 
+    top: 30px;
+    height: 80px;
   }
 }
