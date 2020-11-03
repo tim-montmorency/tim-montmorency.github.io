@@ -1,0 +1,26 @@
+/**
+ * Spacings
+ * ========
+ * |– remove-ends-horizontal-margin
+ * |– remove-ends-vertical-margin
+ */
+
+%remove-ends-horizontal-margin {
+  &:empty {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  &:first-child { margin-left: 0; }
+  &:last-child { margin-right: 0; }
+}
+
+%remove-ends-vertical-margin {
+  &:empty {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  &:first-child { margin-top: 0; }
+  &:last-child { margin-bottom: 0; }
+}

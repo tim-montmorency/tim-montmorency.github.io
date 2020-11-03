@@ -26,6 +26,7 @@ export default class Video {
         enablejsapi: 1,
         modestbranding: 1,
         rel: 0,
+        showinfo: 0,
       },
     };
 
