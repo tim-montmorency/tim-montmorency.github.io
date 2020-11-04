@@ -39,6 +39,21 @@
     transform: translate(-50%, -50%);
   }
 
+  &--border {
+    overflow: visible;
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 4px;
+      left: -4px;
+      background-color: var(--highlight);
+      transition: background-color 1s;
+    }
+  }
+
   &.is-playing & {
     &__poster {
       opacity: 0;

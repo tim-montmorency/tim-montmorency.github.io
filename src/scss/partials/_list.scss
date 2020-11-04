@@ -17,3 +17,20 @@
     }
   }
 }
+
+@include media-breakpoint-up(lg) {
+  .list {
+    &--half {
+      display: flex;
+      flex-wrap: wrap;
+      width: calc(100% + 20px);
+      margin: 0 -10px;
+
+      .card {
+        width: calc(50% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+  }
+}
