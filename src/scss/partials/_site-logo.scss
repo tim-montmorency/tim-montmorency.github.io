@@ -1,0 +1,31 @@
+.site-logo {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.5s;
+  z-index: 10; 
+
+  .logo-tim {
+    height: 40px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .site-logo {
+    top: 30px;
+
+    .logo-tim {
+      height: 80px;
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .site-logo {
+    /* position: fixed;
+    left: 15px;
+    transform: none; */
+    z-index: 100;
+  }
+}

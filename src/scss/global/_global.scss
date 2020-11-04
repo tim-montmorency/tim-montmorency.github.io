@@ -45,6 +45,13 @@ body {
   transition: color 1s;
 }
 
+// Medium devices (tablets, 1200px and up) ----------------
+@include media-breakpoint-up(xl) {
+  .container {
+    max-width: 960px;
+  }
+}
+
 /*--- XXL ---------------------------------*/
 @media (min-width: 1480px) {
   .xxl-only { display: block; }

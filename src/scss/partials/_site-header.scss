@@ -1,0 +1,61 @@
+.site-header {
+  align-items: center;
+  color: var(--secondary);
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  transition: transform var(--s);
+  width: 100%;
+  z-index: 10;
+
+  &__background {
+    align-items: center;
+    background: var(--primary);
+    display: flex;
+    height: 100%;
+    left: 0;
+    pointer-events: all;
+    position: absolute;
+    top: 0;
+    transition: transform 0.3s;
+    width: 100%;
+  }
+
+  &__logo {
+    display: block;
+    margin-left: $grid-gutter-width*0.5;
+    padding: 0 $grid-gutter-width*0.5;
+    position: relative;
+    z-index: 3; // So the logo is on top of the background
+  }
+
+  .logo-tim {
+    fill: var(--highlight);
+    height: 40px;
+    margin: 10px 0;
+  }
+
+  /* Modifiers ---------------------- */
+  .skip-to-content:focus + & {
+    transform: translateY(40px);
+  }
+}
+
+// Medium devices (tablets, 768px and up) ----------------
+@include media-breakpoint-up(md) {
+  .site-header {
+    $el: &;
+
+    padding: 0;
+
+    /* Modifiers ---------------------- */
+    .is-scrolling-down & {
+      transform: translateY(-101%);
+
+      &__background { transform: translateY(0); }
+    }
+  }
+}

@@ -6,7 +6,7 @@
   cursor: pointer;
   display: block;
   height: 0;
-  margin: auto;
+  margin: 0;
   overflow: hidden;
   padding-bottom: 56.25%; // 16/9
   position: relative;
@@ -21,6 +21,8 @@
   }
 
   &__poster {
+    top: 0;
+    left: 0;
     opacity: 1;
     transform: translateX(0);
     transition: opacity var(--s) ease;
@@ -41,7 +43,7 @@
     &__poster {
       opacity: 0;
       transform: translateX(-100%);
-      transition: opacity var(--s), transform 0s var(--s) visibility 0s var(--s);
+      transition: opacity var(--s) var(--s), transform 0s var(--s) visibility 0s var(--s);
       visibility: hidden;
     }
 
