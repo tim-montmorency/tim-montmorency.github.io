@@ -6,6 +6,8 @@ export default class {
       el,
       parent: el.parentElement,
     };
+
+    this.canHover = window.matchMedia('(hover: hover)').matches;
   }
 
   // -- Methods
@@ -25,7 +27,9 @@ export default class {
   }
 
   bindEvents() {
-    this.dom.parent.addEventListener('mousemove', throttle((e) => this.move(e), 50));
+    if (this.canHover) {
+      this.dom.parent.addEventListener('mousemove', throttle((e) => this.move(e), 50));
+    }
   }
 
   move(e) {

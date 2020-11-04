@@ -1,6 +1,6 @@
 import { v1 as uuid } from 'uuid';
 
-export default class Video {
+export default class {
   constructor(el) {
     this.dom = {
       el,
@@ -78,14 +78,11 @@ export default class Video {
 
     this.dom.el.insertAdjacentHTML('afterbegin', player);
     this.dom.player = this.dom.el.querySelector(`#youtube-player-${this.player.guid}`);
-    delete this.createYouTubePlayerHtml;
   }
 
   loadYoutubeApi() {
     if (typeof YT !== 'undefined') {
-      if (typeof this.initYoutubePlayer !== 'undefined') {
-        this.initYoutubePlayer();
-      }
+      this.initYoutubePlayer();
     } else if (!document.body.querySelector('#youtube-iframe-api')) {
       const tag = document.createElement('script');
       tag.id = 'youtube-iframe-api';

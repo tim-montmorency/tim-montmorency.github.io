@@ -18,6 +18,7 @@ smoothscroll.polyfill();
 /* eslint-disable global-require */
 
 const Modules = {
+  HeroYoutube: require('./HeroYoutube').default,
   FollowMouse: require('./FollowMouse').default,
   ScrollDirection: require('./ScrollDirection').default,
   Youtube: require('./Youtube').default,
