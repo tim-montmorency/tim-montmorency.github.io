@@ -70,6 +70,7 @@
     width: 100%;
     cursor: none;
     opacity: 1;
+    pointer-events: none;
     transition: opacity 0.5s;
   }
 
@@ -175,6 +176,10 @@
   .hero {
     display: flex;
     flex-direction: column;
+
+    &__wrapper {
+      pointer-events: initial;
+    }
 
     &__content {
       order: 0;
