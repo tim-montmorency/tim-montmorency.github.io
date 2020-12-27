@@ -1,0 +1,91 @@
+.anchors {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  width: 100%;
+  height: 50px;
+  background-color:var(--highlight);
+
+  .container {
+    height: 100%;
+    position: relative;
+  }
+
+  &__select {
+    appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMzIgMzIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMyIDMyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBhdGggZD0iTTE2LDI1Yy0wLjIsMC0wLjUtMC4xLTAuNy0wLjJsLTE0LTEyYy0wLjQtMC40LTAuNS0xLTAuMS0xLjRjMC40LTAuNCwxLTAuNSwxLjQtMC4xTDE2LDIyLjdsMTMuMy0xMS40ICBjMC40LTAuNCwxLTAuMywxLjQsMC4xYzAuNCwwLjQsMC4zLDEuMS0wLjEsMS40bC0xNCwxMkMxNi41LDI0LjksMTYuMiwyNSwxNiwyNXoiPjwvcGF0aD48L3N2Zz4=');
+    background-position: right 15px center;
+    background-repeat: no-repeat;
+    background-size: 15px auto;
+    border: 0;
+    border-radius: 20px;
+    font-weight: 300;
+    height: 34px;
+    margin: 8px 0;
+    padding: 5px;
+    position: relative;
+    text-align: center;
+    text-align-last: center;
+    width: 100%;
+
+    &:empty { display: none; }
+  }
+
+  &__nav { 
+    display: none; 
+    color: var(--color);
+  }
+
+  &__list { @extend %reset-list; }
+}
+
+@include media-breakpoint-up(md) {
+  .anchors {
+    &__select { display: none; }
+
+    &__nav {
+      display: block;
+      height: 100%;
+      position: relative;
+    }
+
+    &__list {
+      display: flex;
+      font-size: 16px;
+      height: 100%;
+      justify-content: space-between;
+      margin: 0 calc(var(--spacer) * -0.75);
+
+      a {
+        align-items: center;
+        background-color: transparent;
+        color: inherit;
+        display: flex;
+        height: 100%;
+        padding: 0 calc(var(--spacer) * 0.75);
+        text-decoration: none;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.075);
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .anchors {
+    height: 60px;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .anchors {
+    &__list {
+      a { padding: 0 calc(var(--spacer)); }
+    }
+  }
+}
