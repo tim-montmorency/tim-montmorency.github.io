@@ -22,6 +22,7 @@ const Modules = {
   HeroYoutube: require('./HeroYoutube').default,
   FollowMouse: require('./FollowMouse').default,
   ScrollDirection: require('./ScrollDirection').default,
+  Studio: require('./Studio').default,
   Youtube: require('./Youtube').default,
 };
 

@@ -1,0 +1,42 @@
+.studio {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+  }
+
+  &__large,
+  &__small {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    mix-blend-mode: multiply;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &.is-visible { opacity: 1; }
+  }
+
+  &__small-txt {
+    align-self: flex-end;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .studio {
+    width: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
