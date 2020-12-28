@@ -46,6 +46,11 @@ body {
   transition: color 1s;
 }
 
+::selection {
+  background-color: var(--highlight);
+  color: var(--color);
+}
+
 @include media-breakpoint-up(lg) {
   html {
     scroll-padding-top: 60px;
