@@ -17,6 +17,7 @@
 
 html { 
   scroll-behavior: smooth; 
+  scroll-padding-top: 50px;
 }
 
 body {
@@ -45,7 +46,12 @@ body {
   transition: color 1s;
 }
 
-// Medium devices (tablets, 1200px and up) ----------------
+@include media-breakpoint-up(lg) {
+  html {
+    scroll-padding-top: 60px;
+  }
+}
+
 @include media-breakpoint-up(xl) {
   .container {
     max-width: 960px;

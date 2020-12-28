@@ -1,0 +1,83 @@
+.faq {
+  position: relative;
+  width: 100%;
+  transition: all 0.3s;
+  background-color: var(--background);
+  box-shadow: inset 0 -1px currentColor;
+  margin: var(--spacer) 0;
+  border: solid 1px var(--highlight);
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 4px;
+    left: -4px;
+    background-color: var(--highlight);
+    transition: background-color 1s;
+    z-index: -1;
+  }
+  
+  &__summary {
+    cursor: pointer;
+    display: block;
+    padding: 10px 30px 10px 20px;
+    position: relative;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.5rem;
+    font-size: 1.17em;
+    width: 100%;
+    user-select: none;
+    
+    &::-webkit-details-marker { display: none; }
+    
+    &::after {
+      content: '+';
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      color: var(--color);
+      font-size: 1.5rem;
+      transform: translateY(-50%);
+      transition: transform 0.3s;
+    }
+  }
+  
+  &__wrapper {
+    transform-origin: 50% 0;
+    padding: 10px 10px 20px;
+    margin: 0;
+    overflow: hidden;
+
+    > * {
+      @extend %remove-ends-vertical-margin;
+    }
+
+    ul {
+      padding: 0 0 0 20px;
+    }
+  }
+  
+  // &:hover:not([open]) { box-shadow: inset 0 -3px var(--highlight); }
+  
+  &[open] & {
+    &__summary {
+      &::after { transform: translateY(-50%) rotate(45deg); }
+    }
+    
+    &__wrapper { animation: faq 0.3s; }
+  }
+}
+
+@keyframes faq {
+  0%    { 
+    opacity: 0; 
+    transform: scaleY(0);
+  }
+  100%  { 
+    opacity: 1; 
+    transform: scaleY(1);
+  }
+}
