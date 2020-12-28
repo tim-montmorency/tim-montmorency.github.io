@@ -77,7 +77,7 @@
   &__body {
     display: flex;
     flex-direction: column;
-    padding: calc(var(--section-spacer) * 2) 0 var(--section-spacer);
+    padding: 150px 0 var(--section-spacer);
 
     > * { @extend %remove-ends-vertical-margin; }
   }
