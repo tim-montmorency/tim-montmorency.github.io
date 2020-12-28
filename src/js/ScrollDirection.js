@@ -14,7 +14,7 @@ export default class {
   }
 
   bindEvents() {
-    window.addEventListener('scroll', throttle(() => this.update(), 300));
+    window.addEventListener('scroll', throttle(() => this.update(), 300), { passive: true });
   }
 
   update() {

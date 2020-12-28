@@ -28,7 +28,7 @@ export default class {
 
   bindEvents() {
     if (this.canHover) {
-      this.dom.parent.addEventListener('mousemove', throttle((e) => this.move(e), 50));
+      this.dom.parent.addEventListener('mousemove', throttle((e) => this.move(e), 50), { passive: true });
     }
   }
 
