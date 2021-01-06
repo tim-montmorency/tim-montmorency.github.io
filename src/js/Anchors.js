@@ -19,7 +19,15 @@ export default class {
 
   goTo() {
     const anchor = this.dom.select.value;
-    const link = document.querySelector(`[href="#${anchor}"]`);
-    link.click();
+
+    if (anchor.includes('javascript')) {
+      /* eslint-disable */
+      const fn = anchor.replace('javascript:', '');
+      eval(fn);
+      /* eslint-enable */
+    } else {
+      const link = document.querySelector(`[href="#${anchor}"]`);
+      link.click();
+    }
   }
 }
