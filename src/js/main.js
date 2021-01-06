@@ -19,7 +19,6 @@ smoothscroll.polyfill();
 
 const Modules = {
   Anchors: require('./Anchors').default,
-  HeroYoutube: require('./HeroYoutube').default,
   FollowMouse: require('./FollowMouse').default,
   ScrollDirection: require('./ScrollDirection').default,
   Studio: require('./Studio').default,

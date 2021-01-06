@@ -29,8 +29,6 @@ export default class Video {
         showinfo: 0,
       },
     };
-
-    this.init();
   }
 
   // -- Methods
@@ -78,7 +76,6 @@ export default class Video {
 
     this.dom.el.insertAdjacentHTML('afterbegin', player);
     this.dom.player = this.dom.el.querySelector(`#youtube-player-${this.player.guid}`);
-    delete this.createYouTubePlayerHtml;
   }
 
   loadYoutubeApi() {
