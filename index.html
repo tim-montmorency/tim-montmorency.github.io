@@ -44,6 +44,11 @@
   <link rel="stylesheet" href="public/main.css?v=1.0">
   <!-- JavaScript -->
   <script defer src="public/main.js"></script>
+  <style>
+    p {
+      color: white;
+    };
+  </style>
 </head>
 <body data-module="ScrollDirection">
 
@@ -63,7 +68,7 @@
         <path d="M785.69 166.81l16.26 16.26 16.26-16.26L930.56 54.46v226.25h-257V54.67l112.13 112.14zM650.56.71v303h303V.71h-1.77L801.95 150.54 652.12.71h-1.56zM324.48.46v303h303V.46h-303zm129.93 129.93c-13.08 13.08-13.08 34.29 0 47.38 9.41 9.41 23.02 12.05 34.79 7.92l94.77 94.77H347.48v-257h257v236.49l-94.77-94.77c4.13-11.77 1.48-25.39-7.92-34.79-13.09-13.08-34.3-13.08-47.38 0zM206.47 0L0 206.48V303h303V0h-96.53zM23 280v-64l85.62-85.62 119.87 119.87L249 229.74 129.13 109.87 216 23h64v257H23z"/>
       </svg>
     </div>
-
+<!--TOF DISABLED CONTRAST
     <div class="contrast">
       <button class="contrast-mode">
         <div class="sr-only">Basculer de thème</div>
@@ -81,7 +86,7 @@
         </svg>
       </button>
     </div>
-
+-->
     <button class="hero__play" data-module="FollowMouse">
       <span class="sr-only">Démarrer la vidéo</span>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
@@ -115,7 +120,7 @@
         <option value="javascript:playHero()">Vidéo promo</option>
         <option value="projets">Projets étudiants</option>
         <option value="installations">Nos installations</option>
-        <option value="equipement">Notre équipement</option>
+        <option value="programme">Le programme</option>
         <option value="crescentia">Crescentia</option>
         <option value="temoignages">Témoignages</option>
       </select>
@@ -131,11 +136,11 @@
           <li>
             <a href="#installations">Nos installations</a>
           </li>
-          <li>
-            <a href="#equipement">Notre équipement</a>
+          <li class="d-none d-lg-block">
+            <a href="https://www.cmontmorency.qc.ca/programmes/nos-programmes-detudes/techniques/techniques-dintegration-multimedia/description-du-programme/" target="_blank">Le programme</a>
           </li>
           <li class="d-none d-lg-block">
-            <a href="https://tim-montmorency.com/2024/">Crescentia</a>
+            <a href="https://tim-montmorency.com/2024/" target="_blank">Crescentia</a>
           </li>
           <li>
             <a href="#temoignages">Témoignages</a>
@@ -247,21 +252,12 @@
           
           <div class="list__item card">
             <span class="card__link">
-              <h3 class="card__title">Labs</h3>
-              <div class="card__description">Équipés d’ordinateurs performants et des logiciels les plus utilisés dans l’industrie.</div>
+              <h3 class="card__title">Laboratoires</h3>
+              <div class="card__description">PLusieurs laboratoires équipés d’ordinateurs performants et des logiciels les plus utilisés dans l’industrie.</div>
             </span>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section section--equipement">
-      <h2 class="section__title">
-        <a href="#equipement" id="equipement" aria-hidden="true" class="section__anchor">#</a>
-        Notre équipement
-      </h2>
-
-      <p>Extrait de l’équipement disponible en Techniques d’intégration multimédia à Montmorency</p>
+          <p>Voici un extrait de l’équipement disponible aux étudiants en Techniques d’intégration multimédia à Montmorency:</p>
 
       <details class="faq">
         <summary class="faq__summary">Réalité virtuelle</summary>
@@ -362,6 +358,8 @@
           </ul>
         </div>
       </details>
+        </div>
+      </div>
     </section>
 
     <section class="section section--exposition">
@@ -371,7 +369,7 @@
           Crescentia - Projet Synthèse 2024
         </h2>
 
-        <p>Participez à la dernière exposition des étudiants TIM.</p>
+        <p>Visitez la dernière exposition des étudiants TIM:</p>
 
         <div class="list">
           <div class="list__item card">
@@ -425,15 +423,18 @@
 
     <section class="section">
       <div class="slogan">
+<p>
         Pour en savoir plus, voir la <a href="https://www.cmontmorency.qc.ca/programmes/nos-programmes-detudes/techniques/techniques-dintegration-multimedia/description-du-programme/">page du collège&nbsp;Montmorency</a><br>
         ou encore <a href="https://admission.sram.qc.ca/section-site">Inscrivez-vous!</a>
+      </p>
       </div>
     </section>
 
     <section class="section section--slogan">
       <div class="slogan">
         <strong>Techniques d'intégration multimédia</strong><br>
-        <em>Une Technique pas comme les&nbsp;autres!</em>
+        <p><em>Une Technique pas comme les&nbsp;autres!</em></p>
+        
       </div>
     </section>
 
@@ -540,11 +541,12 @@
   const contrastMode = document.querySelector('.contrast-mode');
   const clipboardPopup = document.querySelector('.clipboard-popup');
   const domainUrl = document.URL.replace(/#.*$/, '');
-
+/* TOF DISABLE CONSTRAST CHANGE
+ 
   contrastMode.addEventListener('click', () => {
     document.documentElement.classList.toggle('site-theme--dark');
   });
-
+*/
   function updateClipboard(e) {
     const title = e.target.nextSibling.nodeValue;
     
