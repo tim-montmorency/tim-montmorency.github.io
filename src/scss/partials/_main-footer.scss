@@ -64,24 +64,19 @@
   }
 }
 
-.logo-cmontmorency { 
+.logo-cmontmorency {
   display: block;
-  height: 34px; 
+  height: 34px;
   margin: 0 auto 5px;
 
-  path {
-    fill: var(--highlight);
-    transition: fill 1s;
-  }
-
-  ellipse {
-    fill: var(--highlight);
-    transition: fill 1s;
-  }
-
-  g path {
+  path,
+  rect {
     fill: var(--color);
     transition: fill 1s;
+  }
+
+  path.logo-cmontmorency__accent {
+    fill: #ff003a;
   }
 }
 
